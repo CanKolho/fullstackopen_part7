@@ -1,22 +1,30 @@
-import { useState } from 'react'
-import PropTypes from 'prop-types'
+import { useState, useRef } from 'react'
+import { useDispatch } from 'react-redux'
+import { createBlog } from '../reducers/blogReducer'
+import Togglable from './Togglable'
 
-const BlogForm = ({ createBlog }) => {
+const BlogForm = () => {
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [url, setUrl] = useState('')
 
+  const dispatch = useDispatch()
+  const blogFormRef = useRef()
+
   const handleCreate = async (event) => {
-    event.preventDefault()
-    console.log('sending', { title, author, url })
-    await createBlog(title, author, url)
-    setTitle('')
-    setAuthor('')
-    setUrl('')
+      event.preventDefault()
+      blogFormRef.current.toggleVisibility()
+
+      console.log('sending', { title, author, url })
+      dispatch(createBlog({ title, author, url }))
+      
+      setTitle('')
+      setAuthor('')
+      setUrl('')
   }
 
   return (
-    <>
+    <Togglable buttonLabel="create new blog" ref={blogFormRef}>
       <h1>create new</h1>
       <form onSubmit={handleCreate}>
         <div>
@@ -58,12 +66,8 @@ const BlogForm = ({ createBlog }) => {
           create
         </button>
       </form>
-    </>
+      </Togglable>
   )
-}
-
-BlogForm.propTypes = {
-  createBlog: PropTypes.func.isRequired,
 }
 
 export default BlogForm
