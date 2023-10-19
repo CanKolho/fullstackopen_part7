@@ -1,0 +1,24 @@
+{
+  "notes": [
+    {
+      "content": "This is my test note!",
+      "id": 1
+    },
+    {
+      "content": "More notes!",
+      "id": 2
+    }
+  ],
+  "persons": [
+    {
+      "name": "React god",
+      "number": "112",
+      "id": 1
+    },
+    {
+      "name": "Nodeman",
+      "number": "211",
+      "id": 2
+    }
+  ]
+}
