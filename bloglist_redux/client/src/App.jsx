@@ -13,7 +13,7 @@ import loginService from './services/login'
 
 const App = () => {
   const blogs = useSelector(state => [...state.blogs])
-  
+
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useState(null)
@@ -33,9 +33,6 @@ const App = () => {
       blogService.setToken(user.token)
     }
   }, [])
-
-  const showSuccessMsg = (successMsg) =>
-    dispatch(createNotification(successMsg, true, 5))
 
   const showErrorMsg = (ErrorMsg) =>
     dispatch(createNotification(ErrorMsg, false, 5))
@@ -76,28 +73,6 @@ const App = () => {
     setPassword(target.value)
   }
 
-  const updateLikes = async (id, newBlog) => {
-    try {
-      const updatedBlog = await blogService.update(id, newBlog)
-      const newBlogs = blogs.map((blog) =>
-        blog.id === id ? updatedBlog : blog,
-      )
-      setBlogs(newBlogs)
-    } catch ({ response }) {
-      showErrorMsg(response.data.error)
-    }
-  }
-
-  const deleteBlog = async (id) => {
-    try {
-      await blogService.remove(id)
-      setBlogs(blogs.filter((blog) => blog.id !== id))
-      showSuccessMsg('blog deleted successfully!')
-    } catch ({ response }) {
-      showErrorMsg(response.data.error)
-    }
-  }
-
   const loginForm = () => (
     <Login
       handleLogin={handleLogin}
@@ -125,8 +100,6 @@ const App = () => {
           <Blog
             key={blog.id}
             blog={blog}
-            updateLikes={updateLikes}
-            deleteBlog={deleteBlog}
             username={user.username}
           />
         ))}
