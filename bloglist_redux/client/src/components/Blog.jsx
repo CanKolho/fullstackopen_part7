@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { deleteBlog, update } from '../reducers/blogReducer'
 import PropTypes from 'prop-types'
 
-const Blog = ({ blog, username }) => {
+const Blog = ({ blog }) => {
   const [blogVisible, setBlogVisible] = useState(false)
+  const user = useSelector(state => state.user)
 
   const dispatch = useDispatch()
 
@@ -62,7 +63,7 @@ const Blog = ({ blog, username }) => {
           </button>
         </p>
         <p>{blog.user.name}</p>
-        {username === blog.user.username && (
+        {user.username === blog.user.username && (
           <button id="remove-btn" onClick={handleDelete}>
             Remove
           </button>
@@ -74,7 +75,6 @@ const Blog = ({ blog, username }) => {
 
 Blog.propTypes = {
   blog: PropTypes.object.isRequired,
-  username: PropTypes.string.isRequired,
 }
 
 export default Blog
