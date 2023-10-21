@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { update } from '../reducers/blogReducer'
-import Info from './Info'
+import Header from './Header'
 
 const BlogInfo = ({ blog }) => {
   const dispatch = useDispatch()
@@ -20,7 +20,7 @@ const BlogInfo = ({ blog }) => {
 
   return (
     <div>
-      <Info />
+      <Header />
       <h1>{blog.title}</h1>
       <a href={blog.url}>{blog.url}</a>
       <p>

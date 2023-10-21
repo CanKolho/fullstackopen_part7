@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import Info from './Info'
+import Header from './Header'
 
 const User = ({ user }) => {
   if (!user) return null
@@ -8,10 +8,9 @@ const User = ({ user }) => {
  
   return (
     <div>
-      <Info />
+      <Header />
       <h1> {user.name }</h1>
-      <h2>Added blogs</h2>
-
+      <h3>Added blogs</h3>
       <ul>
         {blogs.map(blog => (
           <li key={blog.id}>

@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import Info from './Info'
+import Header from './Header'
 
 const AllUsers = () => {
   const users = useSelector(state => state.users)
 
   return (
     <div>
-      <Info />
+      <Header/>
       <h1>Users</h1>
       <table>
         <thead>

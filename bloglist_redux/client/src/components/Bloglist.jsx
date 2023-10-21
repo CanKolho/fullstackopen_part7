@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import Blog from "./Blog"
 import BlogForm from "./BlogForm"
-import Info from './Info'
+import Header from './Header'
 import Notification from './Notification'
 
 const Bloglist = () => {
@@ -10,7 +10,7 @@ const Bloglist = () => {
   return (
     <>
       <Notification />
-      <Info />
+      <Header />
       <BlogForm />
       {blogs
         .sort((a, b) => b.likes - a.likes)

@@ -10,6 +10,7 @@ import Login from './components/Login'
 import AllUsers from './components/AllUsers'
 import User from './components/User'
 import BlogInfo from './components/BlogInfo'
+import Navbar from './components/Navbar'
 
 const App = () => {
   const user = useSelector(state => state.user)
@@ -36,6 +37,7 @@ const App = () => {
 
   return (
     <>
+    <Navbar />
     <Routes>
       <Route path='/' element={!user ? <Login /> : <Bloglist /> }/>
       <Route path='/users' element={<AllUsers />}/>
