@@ -9,10 +9,12 @@ import Bloglist from './components/Bloglist'
 import Login from './components/Login'
 import AllUsers from './components/AllUsers'
 import User from './components/User'
+import BlogInfo from './components/BlogInfo'
 
 const App = () => {
   const user = useSelector(state => state.user)
   const users = useSelector(state => state.users)
+  const blogs = useSelector(state => state.blogs)
 
   const dispatch = useDispatch()
 
@@ -27,12 +29,18 @@ const App = () => {
     ? users.find(user => user.id === match.params.id)
     : null
 
+  const blogMatch = useMatch('/blogs/:id')
+  const matchedblog = blogMatch
+    ? blogs.find(blog => blog.id === blogMatch.params.id) 
+    : null
+
   return (
     <>
     <Routes>
       <Route path='/' element={!user ? <Login /> : <Bloglist /> }/>
       <Route path='/users' element={<AllUsers />}/>
       <Route path='/users/:id' element={<User user={matchedUser}/>}/>
+      <Route path='blogs/:id' element={<BlogInfo blog={matchedblog}/>}/>
     </Routes>
     </>
   )
