@@ -30,6 +30,14 @@ const BlogInfo = ({ blog }) => {
         </button>
       </p>
       <p>added by {blog.user.username}</p>
+      <h3>Comments</h3>
+      <ul>
+        {blog.comments.map((comment, index) => (
+          <li key={index}>
+            {comment}
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
