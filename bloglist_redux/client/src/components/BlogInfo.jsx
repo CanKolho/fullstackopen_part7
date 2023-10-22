@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { update } from '../reducers/blogReducer'
 import Header from './Header'
+import Comment from './Comment'
 
 const BlogInfo = ({ blog }) => {
   const dispatch = useDispatch()
@@ -18,6 +19,8 @@ const BlogInfo = ({ blog }) => {
     dispatch(update(blogToUpdate))
   }
 
+  if (!blog) return null
+
   return (
     <div>
       <Header />
@@ -30,14 +33,7 @@ const BlogInfo = ({ blog }) => {
         </button>
       </p>
       <p>added by {blog.user.username}</p>
-      <h3>Comments</h3>
-      <ul>
-        {blog.comments.map((comment, index) => (
-          <li key={index}>
-            {comment}
-          </li>
-        ))}
-      </ul>
+      <Comment blog={blog} />
     </div>
   )
 }
