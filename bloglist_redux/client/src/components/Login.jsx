@@ -23,9 +23,10 @@ const Login = () => {
       <h1>log in to application</h1>
       <Notification />
       <form onSubmit={handleLogin}>
-        <div>
-          username {}
+        <div className="form-group">
+        <label>username</label>
           <input
+            className="form-control"
             type="text"
             value={username}
             name="Username"
@@ -33,9 +34,10 @@ const Login = () => {
             id="username"
           />
         </div>
-        <div>
-          password {}
+        <div className="form-group">
+          <label>password</label>
           <input
+            className="form-control"
             type="password"
             value={password}
             name="Password"
@@ -43,7 +45,7 @@ const Login = () => {
             id="password"
           />
         </div>
-        <button id="login-btn" type="submit">
+        <button className='btn btn-primary' id="login-btn" type="submit" style={{marginTop: 5}}>
           login
         </button>
       </form>

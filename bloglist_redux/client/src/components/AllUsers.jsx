@@ -9,7 +9,7 @@ const AllUsers = () => {
     <div>
       <Header/>
       <h1>Users</h1>
-      <table>
+      <table className='table table-striped'>
         <thead>
           <tr>
             <th>{ }</th>
@@ -19,7 +19,7 @@ const AllUsers = () => {
         <tbody>
           {users.map(user => (
             <tr key={user.id}>
-              <td><Link to={user.id}>{user.name}</Link></td>
+              <td><Link  className='btn btn-dark'to={user.id}>{user.name}</Link></td>
               <td>{user.blogs.length}</td>
             </tr>
           ))}

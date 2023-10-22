@@ -38,12 +38,14 @@ const App = () => {
   return (
     <>
     <Navbar />
-    <Routes>
-      <Route path='/' element={!user ? <Login /> : <Bloglist /> }/>
-      <Route path='/users' element={<AllUsers />}/>
-      <Route path='/users/:id' element={<User user={matchedUser}/>}/>
-      <Route path='blogs/:id' element={<BlogInfo blog={matchedblog}/>}/>
-    </Routes>
+      <div className='container'>
+        <Routes>
+          <Route path='/' element={!user ? <Login /> : <Bloglist /> }/>
+          <Route path='/users' element={<AllUsers />}/>
+          <Route path='/users/:id' element={<User user={matchedUser}/>}/>
+          <Route path='blogs/:id' element={<BlogInfo blog={matchedblog}/>}/>
+        </Routes>
+      </div>
     </>
   )
 }

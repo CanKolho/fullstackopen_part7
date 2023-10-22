@@ -11,9 +11,9 @@ const User = ({ user }) => {
       <Header />
       <h1> {user.name }</h1>
       <h3>Added blogs</h3>
-      <ul>
+      <ul className="list-group">
         {blogs.map(blog => (
-          <li key={blog.id}>
+          <li className='list-group-item' key={blog.id}>
             {blog.title}
           </li>
         ))}

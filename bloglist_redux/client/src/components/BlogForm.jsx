@@ -27,9 +27,10 @@ const BlogForm = () => {
     <Togglable buttonLabel="create new blog" ref={blogFormRef}>
       <h1>create new</h1>
       <form onSubmit={handleCreate}>
-        <div>
-          title: {}
+        <div className="form-group">
+          <label>title</label>
           <input
+            className="form-control"
             type="text"
             placeholder="title"
             value={title}
@@ -40,9 +41,10 @@ const BlogForm = () => {
             }}
           />
         </div>
-        <div>
-          author: {}
+        <div className="form-group">
+          <label>author</label>
           <input
+            className="form-control"
             type="text"
             placeholder="author"
             value={author}
@@ -51,9 +53,10 @@ const BlogForm = () => {
             onChange={({ target }) => setAuthor(target.value)}
           />
         </div>
-        <div>
-          url: {}
+        <div className="form-group">
+        <label>url</label>
           <input
+            className="form-control"
             type="text"
             placeholder="url"
             value={url}
@@ -62,7 +65,7 @@ const BlogForm = () => {
             onChange={({ target }) => setUrl(target.value)}
           />
         </div>
-        <button id="create-btn" type="submit">
+        <button id="create-btn" className='btn btn-success' type="submit" style={{ marginTop: 5, marginBottom: 5 }}>
           create
         </button>
       </form>

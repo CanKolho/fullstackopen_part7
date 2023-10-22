@@ -1,20 +1,9 @@
 import { Link } from 'react-router-dom'
 
-const Blog = ({ blog }) => {
-  const blogStyle = {
-    paddingTop: 10,
-    paddingLeft: 2,
-    border: 'solid',
-    borderWidth: 1,
-    marginBottom: 5,
-  }
-
-  return (
-    <div className="blog" style={blogStyle}>
-      <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
+const Blog = ({ blog }) => (
+    <div className="alert alert-primary">
+      <Link className='btn btn-light' to={`/blogs/${blog.id}`}>{blog.title } - {blog.author}</Link>
     </div>
   )
-}
-
-
+  
 export default Blog

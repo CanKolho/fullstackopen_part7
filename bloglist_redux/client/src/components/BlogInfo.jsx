@@ -24,11 +24,11 @@ const BlogInfo = ({ blog }) => {
   return (
     <div>
       <Header />
-      <h1>{blog.title}</h1>
+      <h1>{blog.title} - {blog.author}</h1>
       <a href={blog.url}>{blog.url}</a>
       <p>
         {blog.likes} likes 
-        <button id="like-btn" onClick={handleLike}>
+        <button className='btn btn-warning' id="like-btn" onClick={handleLike}>
             Like
         </button>
       </p>
